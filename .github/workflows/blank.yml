@@ -44,6 +44,6 @@ jobs:
       - name: Smoke test (port-forward + curl)
         run: |
           # Replace svc name/port as appropriate for your chart
-          kubectl -n demo port-forward svc/demo 8080:80 >/tmp/pf.log 2>&1 &
+          kubectl -n demo port-forward svc/hello-web 8080:80 >/tmp/pf.log 2>&1 &
           sleep 2
           curl -f http://127.0.0.1:8080/
