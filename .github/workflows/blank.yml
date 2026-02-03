@@ -39,7 +39,7 @@ jobs:
           helm upgrade --install demo ./charts/demo -n demo
           kubectl get all -n demo
           # If you know the deployment name:
-          # kubectl rollout status deploy/<your-deploy> -n demo --timeout=180s
+          kubectl rollout status deploy/demo-hello-web -n demo --timeout=180s
 
       - name: Smoke test (port-forward + curl)
         run: |
