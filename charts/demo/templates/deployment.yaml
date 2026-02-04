@@ -28,10 +28,6 @@ spec:
           limits:
             cpu: {{ .Values.resources.limits.cpu }}
             memory: {{ .Values.resources.limits.memory }}
-        volumeMounts:
-        - name: web
-          mountPath: /usr/share/nginx/html
-          readOnly: true
         readinessProbe:
           httpGet:
             path: /
@@ -44,7 +40,3 @@ spec:
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 10
-      volumes:
-      - name: web
-        configMap:
-          name: {{ include "hello-web.fullname" . }}-content
